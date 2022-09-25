@@ -9,7 +9,7 @@ Ishika Misal (email: misal.i@northeastern.edu)
 Utkarsha Shirke (email: shirke.u@northeastern.edu )
 Supriya Tripathi (email: tripathi.su@northeastern.edu)
 
-#Project Description: 
+# Project Description: 
 
 The goal of this project is to create a database containing all relevant resources. The resources database will include: 
 
@@ -21,7 +21,7 @@ Future career outcomes post-degree completion.
 
 We aspire to help learners through our initiative by helping them collate the resources they need to navigate their course. 
 
-# Questions that the database should answer: 
+Questions that the database should answer: 
 
 1. What are the programs offered by the College of Engineering? 
 2. Which courses are covered under each program? 
