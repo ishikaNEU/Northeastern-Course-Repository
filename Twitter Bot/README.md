@@ -166,7 +166,7 @@ Actor action: The student can collect information about core course offerings us
 
 System Responses: None
 
-**SQL Statement: **
+**SQL Statement:**
 
 SELECT 
     *
@@ -177,10 +177,11 @@ WHERE
 
 
 **Relational Algebra:**
+
 σ program_name = "Masters of Science in Information Systems" course_core_requirement
 
 
-** 7. Use Case:**  What are the online resources available for a particular course? 
+**7. Use Case:**  What are the online resources available for a particular course? 
 
 Description: This gives students a bunch of available online resources they can use to prepare for their course. 
 
@@ -201,7 +202,7 @@ FROM
 WHERE
     program_name = 'Data Analytics Engineering'
 
-**Relational Algebra: **
+**Relational Algebra:**
 
 π program_name, online_platform
  σ program_name = "Data Analytics Engineering" resource_material
@@ -230,10 +231,7 @@ WHERE
 **Relational Algebra:** 
 
 π program_name, professional_certificate
- σ program_name = "Software Engineering Systems" resource_material
-
-
-  
+ σ program_name = "Software Engineering Systems" resource_material  
 
 **9. Use Case:** What are internships/co-op/full-time opportunities available during the course/post-completion of my program? 
 
@@ -256,11 +254,9 @@ FROM
 WHERE
     program_name = 'Data Analytics Engineering';
 
-**Relational Algebra: **
+**Relational Algebra:**
 
 σ program_name = "Data Analytics Engineering" jobs
-
-  
 
 **10. Use Case:** How many courses have rating more than 5 for a particular program?
 
@@ -281,7 +277,7 @@ WHERE
 GROUP BY program_name
 ORDER BY rating DESC;
 
-**Relational Algebra: **
+**Relational Algebra:**
 
 τ rating ↓
  π program_name, COUNT (course_id) → totalcourses, rating
@@ -370,7 +366,7 @@ Post Condition:
 
 Alternate Path: Information about practice platform is amde available on different channels, and mandated in case where necessary.
 
-**SQL Statement: **
+**SQL Statement:**
 
 SELECT 
     program_name, course_name, online_platform
