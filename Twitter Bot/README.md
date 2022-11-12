@@ -139,13 +139,13 @@ WHERE
 σ program_name = "Masters of Science in Information Systems" course_detail
 
 
-**5. Use Case:** What are the course-related resource URLs posted by the official NEU repo page? 
+**5. Use Case:** List all online platforms available for course INFO 5100 
 
-Description:  The official webpage tweets information about useful resources for specific courses for the students on Twitter. 
+Description:  The official webpage tweets information about useful platforms for specific courses for the students on Twitter. 
 
 Actor: Program Department twitter handler 
 
-Actor Action: Relevant resource URLs, names, and web pages are shared in the tweet. 
+Actor Action: Relevant platform URLs, names, and web pages are shared in the tweet. 
 
 System Responses: The system notifies all followers about the new tweet. 
 
@@ -153,6 +153,26 @@ Post Condition: The students are able to access the posted resources and benefit
 
 Alternate Path: The resources are published on the program’s website only or offline on an internal repository (like canvas). 
 
+**SQL Statement:**
+
+SELECT 
+    d.program_name,
+    d.course_name,
+    d.course_id,
+    r.online_platform
+FROM
+    course_detail d
+        RIGHT JOIN
+    resource_materials r ON d.program_name = r.program_name
+WHERE
+    d.course_id = 'INFO 5100'
+    
+  **Relational Algebra:**
+  
+  π d . program_name, d . course_name, d . course_id, r . online_platform
+ σ d . course_id = "INFO 5100"
+  (ρ d course_detail ⋈ d . program_name = r . program_name
+   ρ r resource_materials)
 
 **6. Use Case:** What are the core course requirements of a particular program? 
 
