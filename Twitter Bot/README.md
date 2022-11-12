@@ -27,7 +27,7 @@ Post Condition: Customer query successfully answered
 
 Alternate Path: The user question is not relevant or they don’t receive a response. 
 
-**SQL Statement:  **
+**SQL Statement:**
 
  SELECT 
     t1.tags, t2.tweet
@@ -94,7 +94,7 @@ System Responses: The event is promoted on Twitter and other media to increase s
 
 Post Condition: Students are able to connect with potential employers/seniors/mentors
 
-**SQL Statement: ** 
+**SQL Statement:** 
 
 SELECT 
     program_name, events
