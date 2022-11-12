@@ -319,7 +319,23 @@ System Responses: The event is promoted on Twitter and other media to increase s
 
 Post Condition: Students are able to connect with potential employers/seniors/mentors
 
+**SQL Statement:**
+
+SELECT 
+    m.tweet_id, m.twitter_handler, m.source_user, t.tweet
+FROM
+    tweet_mention m
+        JOIN
+    tweet_details t ON m.tweet_id = t.tweet_id
+WHERE
+    m.target_user = 'NEU_CourseRepo'
   
+  **Relational Algebra:**
+  
+  π m . tweet_id, m . twitter_handler, m . source_user, t . tweet
+  σ m . target_user = "NEU_CourseRepo"
+  (ρ m tweet_mention ⋈ m . tweet_id = t . tweet_id
+   ρ t tweet_details)
 
 **12. Use Case:** How many followers does  NEU course repo page has? 
 
