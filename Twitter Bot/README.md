@@ -9,8 +9,75 @@ The overall goal of this project is to create a database containing all relevant
 
 
 
+# USE-CASES, SQL STATEMENTS, AND RELATIONAL ALGEBRA
 
+**1.** **Use Case:** Which tags are mostly used while posting tweets for the NEU course repo page? 
 
+Description: The user tweets a comment/question for the NEU course repo. 
+
+Actor: User
+
+Precondition: When a user wants to ask a question regarding anything related to NEU, they tweet using the screen name of the NEU course repo. 
+
+Actor action: The user request a response
+
+System Responses: The requested Twitter handle replies back. 
+
+Post Condition: Customer query successfully answered
+
+Alternate Path: The user question is not relevant or they don’t receive a response. 
+
+**SQL Statement:  **
+
+ SELECT 
+    t1.tags, t2.tweet
+FROM
+    Tweet_Tag t1
+        RIGHT JOIN
+    Tweet_Details t2 ON t1.tweet_id = t2.tweet_id
+WHERE
+    t1.tags IS NOT NULL;
+
+**Relational Algebra:**
+
+π t1 . tags, t2 . tweet
+ σ NOT (t1 . tags = NULL)
+  (ρ t1 tweet_tag ⋈ t1 . tweet_id = t2 . tweet_id
+   ρ t2 tweet_details)
+
+**2. Use Case:** Which users are requesting information on Twitter related to career Events offered by Northeastern University and how many followers do they have? 
+
+Description: The user tweets a comment/question using relevant keywords: jobs, neujobs, jobsearch.
+
+Actor: User
+
+Precondition: The user wants to ask a question regarding jobs related to programs offered at NEU. 
+
+Actor action: The user request a response
+
+System Responses: Users are directed to relevant job postings and informational websites. 
+Alternate Path: The user question is not relevant or they don’t receive a response. 
+
+**SQL Statement:**
+
+SELECT 
+    t1.name, t1.twitter_handle, t3.followers_count, t2.tags, t1.tweet
+FROM
+    Tweet_Details t1
+        JOIN
+    Tweet_Tag t2 ON t1.tweet_id = t2.tweet_id
+       JOIN
+	User t3 ON t1.twitter_handle = t3.twitter_handle
+WHERE
+    tags LIKE '%careers%';
+
+**Relational Algebra:**
+
+π t1 . name, t1 . twitter_handle, t3 . followers_count, t2 . tags, t1 . tweet
+ σ tags LIKE "%careers%"
+  (ρ t1 tweet_details ⋈ t1 . tweet_id = t2 . tweet_id
+   ρ t2 tweet_tag ⋈ t1 . twitter_handle = t3 . twitter_handle
+    ρ t3 user)
 
 
 # Team Members: 
