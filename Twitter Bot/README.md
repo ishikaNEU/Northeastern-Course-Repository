@@ -6,8 +6,7 @@ The overall goal of this project is to create a database containing all relevant
 ## UML diagram for the Northeastern-Course-Repository Twitter domain
 
 
-![image](https://user-images.githubusercontent.com/106060204/201500540-16cd8ecc-b54a-4072-9e62-573b44260f04.png)
-
+![image](https://user-images.githubusercontent.com/106060204/201500622-d9a42637-5337-4367-bbee-67b766eb9cc3.png)
 
 
 
