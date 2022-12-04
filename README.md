@@ -1,8 +1,6 @@
 # Northeastern-Course-Repository
 NEU resource for courses offered. 
 
-Title: Northeastern Course Repository
-
 # Team Members: 
 
 Ishika Misal (email: misal.i@northeastern.edu)
