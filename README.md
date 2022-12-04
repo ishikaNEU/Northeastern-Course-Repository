@@ -30,36 +30,16 @@ Masters of Science Software Engineering Systems
 ## Plan of Action:
 We have used 3 sources to collect the data: 
 
-### Website Scraping: As most of the details about the course offerings are available on the Northeastern university’s website, we have scraped multiple pages to gather information in one place. 
+### Website Scraping: 
+As most of the details about the course offerings are available on the Northeastern university’s website, we have scraped multiple pages to gather information in one place. 
 
-### API Scraping: We have scraped LinkedIn API to collect information about the jobs a student can secure after graduating from the courses within our scope. We have used Python and Scrapy to get job-related data. We used the ai-skunks GitHub as a starting point to get jobs-related data. 
+### API Scraping: 
+We have scraped LinkedIn API to collect information about the jobs a student can secure after graduating from the courses within our scope. We have used Python and Scrapy to get job-related data. We used the ai-skunks GitHub as a starting point to get jobs-related data. 
 
-### Google Forms: To get more on-ground data, we spoke to a few students and circulated google forms to collect data pertaining to resources that are relevant to the aforementioned programs. 
+### Google Forms: 
+To get more on-ground data, we spoke to a few students and circulated google forms to collect data pertaining to resources that are relevant to the aforementioned programs. 
 
 We have collated all the above data sources to create a database and established connections between program offerings, jobs related to these programs, events conducted to promote jobs and programs, and the resources learners need to excel in their coursework. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Data Cleaning:
 
