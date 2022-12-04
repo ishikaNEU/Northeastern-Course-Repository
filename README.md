@@ -13,11 +13,11 @@ Supriya Tripathi (email: tripathi.su@northeastern.edu)
 
 This project aims to create a database containing all relevant resources. The resources database will include: 
 
--- Programs offered on the Boston campus of Northeastern University in the College of Engineering, and details about their duration, offerings, and specializations. 
--- The relevant study material (paid and free resources) for all courses offered by COE. 
--- Tools and software required by the courses.  
--- Program contacts (Professors/Advisors/Current Teaching Assistants). 
--- Future career outcomes post-degree completion. 
+- Programs offered on the Boston campus of Northeastern University in the College of Engineering, and details about their duration, offerings, and specializations. 
+- The relevant study material (paid and free resources) for all courses offered by COE. 
+- Tools and software required by the courses.  
+- Program contacts (Professors/Advisors/Current Teaching Assistants). 
+- Future career outcomes post-degree completion. 
 
 We aspire to help learners through our initiative by helping them collate the resources they need to navigate their course. 
 
@@ -87,290 +87,276 @@ We have collated all the above data sources to create a database and established
 Run the below Queries for the complete code Execution by following the given steps:
 
 
-1. Create NEU_Programs table
+## 1. Create NEU_Programs table
 
-CREATE TABLE NEU_Programs (
-program_name varchar(100),
-duration varchar(100),
-program_url varchar(255),
-PRIMARY KEY (program_name)
-);
-
-
-2. Create NEU_Course_Catalog
-
-CREATE TABLE NEU_Course_Catalog (
-program_name varchar(50),
-course_id varchar(50),
-course_name varchar(100),
-course_description longtext,
-PRIMARY KEY (course_id)
-);
+	CREATE TABLE NEU_Programs (
+	program_name varchar(100),
+	duration varchar(100),
+	program_url varchar(255),
+	PRIMARY KEY (program_name)
+	);
 
 
-## Add Foreign Key Constraint
+## 2. Create NEU_Course_Catalog
 
-ALTER TABLE NEU_Course_Catalog
-ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)
-REFERENCES NEU_Programs(program_name);
-
-
-3. Create Resources_Material1 table
-
-CREATE TABLE Resource_material1(
-resource_id integer auto_increment,
-course_id varchar(255),
-software_download_url longtext,
-professional_certificate longtext,
-online_platform longtext,
-course_rating integer,
-Primary Key (resource_id)
-);
-
-## Set auto increment value to 3100
-
-ALTER TABLE Resource_material1 AUTO_INCREMENT=3100;
-
-
-## Add Foreign Key Constraint 
-
-ALTER TABLE Resource_material1
-ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
-REFERENCES NEU_Course_Catalog(course_id);
-
-
-4. Create NEU_Course_Faculty Table
-
-CREATE TABLE NEU_Course_Faculty (
-faculty_id integer auto_increment,
-program_name varchar(50),
-course_id varchar(100),
-faculty_name varchar(100),
-faculty_rating integer,
-Primary Key (faculty_id)
-);
-
-
-## Set auto increment value to 4100
-
-ALTER TABLE NEU_Course_Faculty AUTO_INCREMENT=4100;
+	CREATE TABLE NEU_Course_Catalog (
+	program_name varchar(50),
+	course_id varchar(50),
+	course_name varchar(100),
+	course_description longtext,
+	PRIMARY KEY (course_id)
+	);
 
 
 ## Add Foreign Key Constraint
 
-ALTER TABLE NEU_Course_Faculty
-ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
-REFERENCES NEU_Course_Catalog(course_id);
+	ALTER TABLE NEU_Course_Catalog
+	ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
 
-5.  Create Course_Core_Requirement table
 
-CREATE TABLE course_core_requirement (
-core_course_id integer auto_increment,
-program_name varchar(50),
-course_id varchar(50),
-course_name varchar(100),
-PRIMARY KEY (core_course_id)
-);
+## 3. Create Resources_Material1 table
 
-## Set auto increment value to 1101
+	CREATE TABLE Resource_material1(
+	resource_id integer auto_increment,
+	course_id varchar(255),
+	software_download_url longtext,
+	professional_certificate longtext,
+	online_platform longtext,
+	course_rating integer,
+	Primary Key (resource_id)
+	);
 
-ALTER TABLE course_core_requirement AUTO_INCREMENT=1101;
+#### Set auto increment value to 3100
 
-## Add Foreign Key Constraint 
+	ALTER TABLE Resource_material1 AUTO_INCREMENT=3100;
 
-ALTER TABLE Course_Core_Requirement
-ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
-REFERENCES NEU_Programs(program_name);
 
-6.  Create Jobs_Info Table
+#### Add Foreign Key Constraint 
 
-CREATE TABLE Jobs_Info (
-Job_No integer auto_increment,
-program_name varchar(255),
-title varchar(255),
-job_id varchar(255),
-company_name varchar(255),
-location varchar(255),
-date_posted date ,
-link longtext,
-description longtext,
-seniority_level varchar(255) ,
-employement_type varchar(255),
-job_function varchar(255),
-industry varchar(255),
-primary key (job_No)
-);
+	ALTER TABLE Resource_material1
+	ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalog(course_id);
 
-## Set auto increment value to 900
 
-ALTER TABLE jobs_info AUTO_INCREMENT=900;
+## 4. Create NEU_Course_Faculty Table
 
-## Add Foreign Key constraints
+	CREATE TABLE NEU_Course_Faculty (
+	faculty_id integer auto_increment,
+	program_name varchar(50),
+	course_id varchar(100),
+	faculty_name varchar(100),
+	faculty_rating integer,
+	Primary Key (faculty_id)
+	);
 
-ALTER TABLE Jobs_Info
-ADD CONSTRAINT Jobs_Info_fk1 FOREIGN KEY (program_name)
-REFERENCES NEU_Programs(program_name);
+
+#### Set auto increment value to 4100
+
+	ALTER TABLE NEU_Course_Faculty AUTO_INCREMENT=4100;
+
+
+#### Add Foreign Key Constraint
+
+	ALTER TABLE NEU_Course_Faculty
+	ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalog(course_id);
+
+## 5. Create Course_Core_Requirement table
+
+	CREATE TABLE course_core_requirement (
+	core_course_id integer auto_increment,
+	program_name varchar(50),
+	course_id varchar(50),
+	course_name varchar(100),
+	PRIMARY KEY (core_course_id)
+	);
+
+#### Set auto increment value to 1101
+
+	ALTER TABLE course_core_requirement AUTO_INCREMENT=1101;
+
+#### Add Foreign Key Constraint 
+
+	ALTER TABLE Course_Core_Requirement
+	ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
+
+## 6.  Create Jobs_Info Table
+
+	CREATE TABLE Jobs_Info (
+	Job_No integer auto_increment,
+	program_name varchar(255),
+	title varchar(255),
+	job_id varchar(255),
+	company_name varchar(255),
+	location varchar(255),
+	date_posted date ,
+	link longtext,
+	description longtext,
+	seniority_level varchar(255) ,
+	employement_type varchar(255),
+	job_function varchar(255),
+	industry varchar(255),
+	primary key (job_No)
+	);
+
+#### Set auto increment value to 900
+
+	ALTER TABLE jobs_info AUTO_INCREMENT=900;
+
+#### Add Foreign Key constraints
+
+	ALTER TABLE Jobs_Info
+	ADD CONSTRAINT Jobs_Info_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
  
 
-7.   Run the Python Script in Jupyter Notebook
+## 7. Run the Python Script for scraping NEU Websites in Jupyter Notebook
 
-8.  Run Pycharm Script for Scraping jobs on Linkedin
+## 8. Run Linkedin API Script for Scraping jobs on Linkedin
 
-9. NEU_Event table:
+## 9. NEU_Event table:
 
-CREATE TABLE NEU_Event (
-event_id integer auto_increment,
-program_name varchar(50),
-event_name varchar(255),
-Primary Key (event_id)
-);
+	CREATE TABLE NEU_Event (
+	event_id integer auto_increment,
+	program_name varchar(50),
+	event_name varchar(255),
+	Primary Key (event_id)
+	);
 
-## Set auto increment value to 101
+#### Set auto increment value to 101
 
-ALTER TABLE neu_event AUTO_INCREMENT=101;
+	ALTER TABLE neu_event AUTO_INCREMENT=101;
 
-## Add Foreign Key constraints
+#### Add Foreign Key constraints
 
-ALTER TABLE NEU_Event
-ADD CONSTRAINT NEU_Event_fk1 FOREIGN KEY (program_name)
-REFERENCES NEU_Programs(program_name);
-
-
-## SQL to insert data in NEU_Event Table
-
-INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Ethics Institute Speaker, Michael Hannon ( Friday, November 18, 2022 12pm to 1:30pm )");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Ethics Institute Speaker, Don Fallis ( Friday, December 2, 2022 12pm to 1:30pm)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Using a Systems-based Culturally Responsive Evaluation (SysCRE) Framework (Wednesday, November 16, 2022 10am to 11:30am)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Designing an Engaging Academic Presentation (Friday, November 11, 2022)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Listener Research Study (Friday, November 11, 2022)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Problem Play (Friday, November 11, 2022 8pm to 10pm)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Graduate programs open house ");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Women in STEM: An Evening with Distinguished Alumni (6th March 2023)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Fall Graduate Programs Open House ");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Northeastern University Mumbai Education Exhibition");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Graduate Studies Information Session");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Next Steps for Critical Infrastructure & Cyber Security: CISA Dir. Wales (Tue, Nov 15, 11:00 PM)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","International Education Week Kick-Off Event (Mon, Nov 14, 2:00 PM)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Greatest MINDS Generations - A Gathering of Black Bostonians (All Ages)2023 (Thu, Jan 19, 9:00 AM)");
-INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Can AI Help Create a More Sustainable World? (Tue, Nov 15, 5:00 PM)");
+	ALTER TABLE NEU_Event
+	ADD CONSTRAINT NEU_Event_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
 
 
-10. NEU_Specialization Table
+#### SQL to insert data in NEU_Event Table
 
-CREATE TABLE NEU_Specialization (
-spec_course_id integer auto_increment,
-course_id varchar(50),
-credit_hours integer,
-specialization varchar(100),
-Primary Key (spec_course_id)
-);
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Ethics Institute Speaker, Michael Hannon ( Friday, November 18, 2022 12pm to 1:30pm )");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Ethics Institute Speaker, Don Fallis ( Friday, December 2, 2022 12pm to 1:30pm)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Using a Systems-based Culturally Responsive Evaluation (SysCRE) Framework (Wednesday, November 16, 2022 10am to 11:30am)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Designing an Engaging Academic Presentation (Friday, November 11, 2022)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Information Systems","Listener Research Study (Friday, November 11, 2022)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Problem Play (Friday, November 11, 2022 8pm to 10pm)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Graduate programs open house ");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Women in STEM: An Evening with Distinguished Alumni (6th March 2023)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Fall Graduate Programs Open House ");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Data Analytics Engineering","Northeastern University Mumbai Education Exhibition");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Graduate Studies Information Session");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Next Steps for Critical Infrastructure & Cyber Security: CISA Dir. Wales (Tue, Nov 15, 11:00 PM)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","International Education Week Kick-Off Event (Mon, Nov 14, 2:00 PM)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Greatest MINDS Generations - A Gathering of Black Bostonians (All Ages)2023 (Thu, Jan 19, 9:00 AM)");
+	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Can AI Help Create a More Sustainable World? (Tue, Nov 15, 5:00 PM)");
+
+
+## 10. NEU_Specialization Table
+
+	CREATE TABLE NEU_Specialization (
+	spec_course_id integer auto_increment,
+	course_id varchar(50),
+	credit_hours integer,
+	specialization varchar(100),
+	Primary Key (spec_course_id)
+	);
 
 ## Set auto increment value to 1000
 
-ALTER TABLE NEU_Specialization AUTO_INCREMENT=1000;
+	ALTER TABLE NEU_Specialization AUTO_INCREMENT=1000;
 
 ## Adding Foreign_Key Constraints
 
-ALTER TABLE NEU_Specialization
-ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
-REFERENCES NEU_Course_Catalog(course_id);
+	ALTER TABLE NEU_Specialization
+	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalog(course_id);
 
 
 ## SQL to insert data in NEU_Specialization Table
 
 
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 6225",4,"Big Data Systems and Analytics Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("DAMG 7245",4,"Big Data Systems and Analytics Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7250",4,"Big Data Systems and Analytics Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7390",4,"Big Data Systems and Analytics Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 7280",4,"Intelligent Systems Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7375",4,"Intelligent Systems Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7390",4,"Intelligent Systems Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7610",4,"Intelligent Systems Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7500",4,"Smart Contracts Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7510",4,"Smart Contracts Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7520",4,"Smart Contracts Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7525",2,"Smart Contracts Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7535",2,"Smart Contracts Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 7280",4,"User Experience Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6150",4,"User Experience Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6245",4,"User Experience Concentration");
-INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6350",4,"User Experience Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 6225",4,"Big Data Systems and Analytics Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("DAMG 7245",4,"Big Data Systems and Analytics Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7250",4,"Big Data Systems and Analytics Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7390",4,"Big Data Systems and Analytics Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 7280",4,"Intelligent Systems Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7375",4,"Intelligent Systems Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7390",4,"Intelligent Systems Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7610",4,"Intelligent Systems Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7500",4,"Smart Contracts Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7510",4,"Smart Contracts Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7520",4,"Smart Contracts Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7525",2,"Smart Contracts Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 7535",2,"Smart Contracts Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("CSYE 7280",4,"User Experience Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6150",4,"User Experience Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6245",4,"User Experience Concentration");
+	INSERT INTO NEU_Specialization (course_id,credit_hours,specialization) VALUES ("INFO 6350",4,"User Experience Concentration");
 
 
-11. Delete data from table to run the python script again
+## 11. Delete data from table to run the python script again
 
-delete from jobs_info;
-delete from neu_specialization;
-delete from neu_course_faculty;
-delete from resource_material1;
-delete from neu_course_catalog;
-delete from neu_event;
-delete from course_core_requirement;
-delete from neu_programs;
+	delete from jobs_info;
+	delete from neu_specialization;
+	delete from neu_course_faculty;
+	delete from resource_material1;
+	delete from neu_course_catalog;
+	delete from neu_event;
+	delete from course_core_requirement;
+	delete from neu_programs;
 
 ## Use Cases
           
 
-1.How many total courses are available for Information Systems Program in Northeastern     University?
+### 1. How many total courses are available for Information Systems Program in Northeastern University?
 
-      SQL Statement: 
-     
-     	SELECT
-     	a.program_name, 
-     	COUNT(a.course_name), 
-     	b.program_url
-     	FROM
-     	neu_course_catalog a 
-     	LEFT OUTER JOIN
-     	NEU_Program_Detail b 
-     	ON
-     	a.program_name = b.program_name 
-     	where b.program_name = 'Information Systems'
-     	GROUP BY 
-     	a.program_name;
+SQL Statement: 
 
-2.    Which courses do we need to take to do specialization in User Experience Concentration?
+	SELECT a.program_name, 
+	COUNT(a.course_name), b.program_url
+	FROM neu_course_catalog a 
+	LEFT OUTER JOIN
+	NEU_Program_Detail b 
+	ON a.program_name = b.program_name 
+	WHERE b.program_name = 'Information Systems'
+	GROUP BY a.program_name;
+	
 
-        SQL Statement:
+### 2.    Which courses do we need to take to do specialization in User Experience Concentration?
 
-        select * from neu_specialization where specialization = 'User Experience Concentration';
+SQL Statement:
 
-3.  List top rated professors at NEU whose rating is above 4. Also mention the courses and its description taught by the professor.
+        Select * from neu_specialization where specialization = 'User Experience Concentration';
 
-      SQL Statement:
+### 3.  List top rated professors at NEU whose rating is above 4. Also mention the courses and its description taught by the professor.
 
-             SELECT 
-	a.program_name,b.faculty_name,b.faculty_rating, a.course_name, a.course_description
-	FROM  
-	neu_Course_Catalog a 
-	RIGHT OUTER JOIN 
-	NEU_course_Faculty b 
-	ON
-	a.course_id = b.course_id 
-	WHERE 
-	b.faculty_rating >= 4
-	Order by b.faculty_rating desc;
+SQL Statement:
+      
+      SELECT a.program_name,b.faculty_name,b.faculty_rating, a.course_name, a.course_description 
+      FROM  neu_Course_Catalog a
+      RIGHT OUTER JOIN NEU_course_Faculty b 
+      ON a.course_id = b.course_id 
+      WHERE b.faculty_rating >= 4 
+      Order by b.faculty_rating desc;
 
-4. What are the core course requirements for Information Systems, Software Engineering Systems and Data Analytics?
+### 4. What are the core course requirements for Information Systems, Software Engineering Systems and Data Analytics?
 
-      SQL Statement:
+SQL Statement:
 
-              SELECT
-             a.program_name, GROUP_CONCAT(a.course_id SEPARATOR  '|'),      
+	SELECT a.program_name, GROUP_CONCAT(a.course_id SEPARATOR  '|'),      
 	COUNT(a.course_id), b.program_url
-	FROM
-	Course_Core_requirement a
-	LEFT JOIN 
-	NEU_Program_Detail b
-	ON 
-	a.program_name = b.program_name
-	GROUP BY
-	a.program_name;
+	FROM Course_Core_requirement a
+	LEFT JOIN NEU_Program_Detail b
+	ON a.program_name = b.program_name
+	GROUP BY a.program_name;
 
-5.  List courses available for Data Analytics Engineering along with its course_outcome.
+### 5.  List courses available for Data Analytics Engineering along with its course_outcome.
 
-      SQL Statement:
+SQL Statement:
 
 	SELECT
 	program_name, course_id,course_name, course_description
@@ -379,147 +365,105 @@ delete from neu_programs;
 	WHERE program_name = 'Data Analytics Engineering';
 
 
-6.	What is the average overall rating given by students to a professor for a given course?
+### 6.	What is the average overall rating given by students to a professor for a given course?
 
-      SQL Statement:
+SQL Statement:
 
 	SELECT faculty_name, round (AVG(faculty_rating),1) as Average_rating 
 	FROM NEU_course_Faculty 
 	GROUP BY faculty_name;
 
+### 7.Which courses students need to take to do specialization in Big Data Systems concentration and which resources are available for them?
 
+SQL Statement:
 
-
-
-
-7.Which courses students need to take to do specialization in Big Data Systems concentration and which resources are available for them?
-
-      SQL Statement:
- 
-             SELECT 
-	c.program_name,a.specialization, a.course_id, c.course_name,
-             b.course_rating,b.online_platform
-	FROM 
-	NEU_Specialization a
-	LEFT JOIN 
-	NEU_course_catalog c on c.course_id = a.course_id
-	LEFT JOIN
-	Resource_material1 b 
+	SELECT c.program_name,a.specialization, a.course_id, c.course_name, b.course_rating,b.online_platform
+	FROM NEU_Specialization a
+	LEFT JOIN NEU_course_catalog c on c.course_id = a.course_id
+	LEFT JOIN Resource_material1 b 
 	ON a.course_id = b.course_id
-	WHERE 
-	a.specialization like '%Big Data%';
+	WHERE a.specialization like '%Big Data%';
 
 
 
-8. List details about all the Masters programs available in Northeastern University
+### 8. List details about all the Masters programs available in Northeastern University
 
-	SQL Statement:
+SQL Statement:
 
-	SELECT 
-	* 
-	FROM 
-	NEU_program_Detail;
+	SELECT * FROM NEU_program_Detail;
 
 
-9.  Which job positions for students in Data Analytics Engineering and list the details related to those positions?
+### 9.  Which job positions for students in Data Analytics Engineering and list the details related to those positions?
 
-      SQL Statement:
+SQL Statement:
 
-             SELECT 
-   	program_name, title, company_name,description
-   	FROM 
-   	Jobs_info
-   	WHERE 
-   	program_name LIKE '%Data%';
-
-
+	SELECT program_name, title, company_name,description
+	FROM Jobs_info
+	WHERE program_name LIKE '%Data%';
  
-10.  List the events hosted by Northeastern University for students by Data Analytics Engineering Department.
+### 10.  List the events hosted by Northeastern University for students by Data Analytics Engineering Department.
   
-      SQL Statement:
+SQL Statement:
                       
-      SELECT 
-      program_name, event_name
-      FROM 
-      Neu_Event 
-      WHERE 
-      program_name = 'Data Analytics Engineering';
+	SELECT program_name, event_name 
+	FROM Neu_Event 
+	WHERE program_name = 'Data Analytics Engineering';
 
 
-11. Which professors teach courses related to Big Data Systems and list the ratings given by students for the course?
+### 11. Which professors teach courses related to Big Data Systems and list the ratings given by students for the course?
 
-       SQL Statement:
+SQL Statement:
 
-       SELECT
-       a.faculty_name, c.course_rating
-       FROM 
-       NEU_Course_Faculty a
-       JOIN NEU_Course_Catalog b ON a.program_name = b.program_name
-       JOIN Resource_material1 c ON c.course_id = b.course_id 
-       WHERE 
-       b.course_name like '%Big-Data Systems%'
-       ORDER BY c.course_rating;
+	SELECT a.faculty_name, c.course_rating
+	FROM NEU_Course_Faculty a 
+	JOIN NEU_Course_Catalog b 
+	ON a.program_name = b.program_name
+	JOIN Resource_material1 c ON c.course_id = b.course_id 
+	WHERE b.course_name like '%Big-Data Systems%'
+	ORDER BY c.course_rating;
 
 
-12.   Find the average course rating for Information Systems Program
+### 12.   Find the average course rating for Information Systems Program
 
-       SQL Statement:
+SQL Statement:
 
-              SELECT 
-	 b.program_name, AVG(a.course_rating) 
-	 FROM 
-	 Resource_material1 a
-	 RIGHT JOIN
-	 NEU_Course_Catalog  b
-	 ON
-	 a.course_id = b.course_id
-	 WHERE
-	 b.program_name  ='Information Systems';
+	SELECT b.program_name, AVG(a.course_rating) 
+	FROM Resource_material1 a 
+	RIGHT JOIN NEU_Course_Catalog  b
+	ON a.course_id = b.course_id
+	WHERE b.program_name  ='Information Systems';
 
 
-13.   List courses with lowest rating.
+### 13.   List courses with lowest rating.
 
-      SQL Statement:
+SQL Statement:
 
-	SELECT
-	a.course_id,a.course_rating,b.course_name,b.course_description
-	FROM
-	Resource_material1 a
-	LEFT JOIN 
-	NEU_Course_catalog b
-	on a.course_id = b.course_id
-	where
-	course_rating = (select min(course_rating) from resource_material1);
+	SELECT a.course_id,a.course_rating,b.course_name,b.course_description
+	FROM Resource_material1 a
+	LEFT JOIN NEU_Course_catalog b
+	ON a.course_id = b.course_id
+	WHERE course_rating = (select min(course_rating) from resource_material1);
 
 
-14.  Find the  professors who taught DAMG 7350, INFO 5100, DAMG 6105, DAMG 7275 courses.
+### 14.  Find the  professors who taught DAMG 7350, INFO 5100, DAMG 6105, DAMG 7275 courses.
 
-      SQL Statement:
-
-
-	SELECT * FROM NEU_course_Faculty WHERE faculty_name  = ANY (
-	SELECT
-	faculty_name 
-	FROM
-	NEU_course_Faculty 
-	WHERE
-	course_id  IN ('DAMG 7350', 'INFO 5100', 'DAMG 6105', 'DAMG 7275'));
+SQL Statement:
 
 
-15.  Which resources are available for students who have chosen Information Systems program?
+	SELECT * FROM NEU_course_Faculty WHERE faculty_name  = ANY (SELECT faculty_name FROM NEU_course_Faculty WHERE course_id  IN ('DAMG 7350', 'INFO 5100', 'DAMG 6105', 'DAMG 7275'));
 
-       SQL Statement:
 
-	 SELECT 
-	 a.program_name, b.course_id, c.software_download_url, 
-	 c.professional_certificate, c.online_platform
-	 FROM 
-	 NEU_Course_Faculty a
-	 JOIN NEU_Course_Catalog b ON a.program_name = b.program_name
-	 JOIN Resource_material1 c ON c.course_id = b.course_id 
-	 WHERE 
-	 a.program_name = 'Information Systems';
-Sample data from all tables
+### 15.  Which resources are available for students who have chosen Information Systems program?
+
+SQL Statement:
+
+	SELECT a.program_name, b.course_id, c.software_download_url, c.professional_certificate, c.online_platform
+	FROM NEU_Course_Faculty a
+	JOIN NEU_Course_Catalog b ON a.program_name = b.program_name
+	JOIN Resource_material1 c ON c.course_id = b.course_id 
+	WHERE a.program_name = 'Information Systems';
+
+## Sample data from all tables
 
 Neu_Programs  table:
 
