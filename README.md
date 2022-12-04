@@ -11,29 +11,13 @@ Supriya Tripathi (email: tripathi.su@northeastern.edu)
 
 # Project Description: 
 
-The goal of this project is to create a database containing all relevant resources. The resources database will include: 
-
-Programs offered on the Boston campus of Northeastern University in the College of Engineering, and details about their duration, offerings, and specializations. 
-The relevant study material (paid and free resources) for all courses offered by COE. 
-Tools and software required by the courses.  
-Program contacts (Professors/Advisors/Current Teaching Assistants). 
-Future career outcomes post-degree completion. 
-
-We aspire to help learners through our initiative by helping them collate the resources they need to navigate their course. 
-
-DMDD Assigment 3
-
-
-
-Project Description: 
-
 This project aims to create a database containing all relevant resources. The resources database will include: 
 
-Programs offered on the Boston campus of Northeastern University in the College of Engineering, and details about their duration, offerings, and specializations. 
-The relevant study material (paid and free resources) for all courses offered by COE. 
-Tools and software required by the courses.  
-Program contacts (Professors/Advisors/Current Teaching Assistants). 
-Future career outcomes post-degree completion. 
+-- Programs offered on the Boston campus of Northeastern University in the College of Engineering, and details about their duration, offerings, and specializations. 
+-- The relevant study material (paid and free resources) for all courses offered by COE. 
+-- Tools and software required by the courses.  
+-- Program contacts (Professors/Advisors/Current Teaching Assistants). 
+-- Future career outcomes post-degree completion. 
 
 We aspire to help learners through our initiative by helping them collate the resources they need to navigate their course. 
 
@@ -77,8 +61,7 @@ We have collated all the above data sources to create a database and established
 
 
 
-
-Data Cleaning:
+## Data Cleaning:
 
 
 1. NEU_Programs Table:
@@ -119,7 +102,7 @@ Data Cleaning:
 
  - Duplicate jobs are removed from the scraped data in jupyter notebook
 
-Assignment Execution Steps:
+## Assignment Execution Steps:
 
 Run the below Queries for the complete code Execution by following the given steps:
 
@@ -199,12 +182,6 @@ ALTER TABLE NEU_Course_Faculty
 ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
 REFERENCES NEU_Course_Catalog(course_id);
 
-
-
-
-
-
-
 5.  Create Course_Core_Requirement table
 
 CREATE TABLE course_core_requirement (
@@ -225,9 +202,7 @@ ALTER TABLE Course_Core_Requirement
 ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
 REFERENCES NEU_Programs(program_name);
 
-
 6.  Create Jobs_Info Table
-
 
 CREATE TABLE Jobs_Info (
 Job_No integer auto_increment,
@@ -245,9 +220,6 @@ job_function varchar(255),
 industry varchar(255),
 primary key (job_No)
 );
-
-
-
 
 ## Set auto increment value to 900
 
@@ -357,40 +329,7 @@ delete from neu_event;
 delete from course_core_requirement;
 delete from neu_programs;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- Use Cases
+## Use Cases
           
 
 1.How many total courses are available for Information Systems Program in Northeastern     University?
@@ -608,49 +547,21 @@ Neu_Programs  table:
 NEU_Course_Catalog Table:
 
 
-
-
-
-
-
-
-
 Jobs_Info Table:
-
-
-
-
 
 
 Course_Core_Requirement Table:
 
 
-
-
-
-
-
-
-
-
 NEU_Event Table: 
-
-
-
 
 
 NEU_Faculty Table:
 
 
-
 NEU_Specialization Table:
 
 
-
-
-
 Resource_Material1 Table:
-
-
 
 
