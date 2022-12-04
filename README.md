@@ -465,25 +465,36 @@ SQL Statement:
 
 ## Sample data from all tables
 
-Neu_Programs  table:
+### Neu_Programs  table:
+
+![image](https://user-images.githubusercontent.com/106060204/205521942-81860914-5251-45f3-9e29-bfb565989cb1.png)
 
 
-NEU_Course_Catalog Table:
+### NEU_Course_Catalog Table:
+![image](https://user-images.githubusercontent.com/106060204/205522001-3b82ae3e-fc03-491a-acf4-8eaecea794d8.png)
 
 
-Jobs_Info Table:
+### Jobs_Info Table:
+![image](https://user-images.githubusercontent.com/106060204/205522007-cfef9d3c-8452-4806-9d23-4d7ae9525f64.png)
 
 
-Course_Core_Requirement Table:
+### Course_Core_Requirement Table:
+![image](https://user-images.githubusercontent.com/106060204/205522017-87cab419-4b75-4a08-b60d-43c786b5d7b7.png)
 
 
-NEU_Event Table: 
+### NEU_Event Table: 
+![image](https://user-images.githubusercontent.com/106060204/205522022-593119f2-4c0c-4222-a2c7-a204dfb8e0da.png)
 
 
-NEU_Faculty Table:
+
+### NEU_Faculty Table:
+![image](https://user-images.githubusercontent.com/106060204/205522031-84670a48-fb9d-4733-abfe-8f83407c9740.png)
 
 
-NEU_Specialization Table:
+### NEU_Specialization Table:
+![image](https://user-images.githubusercontent.com/106060204/205522037-dc3913ec-b3c7-47b9-bd1c-a56bbc6e1ec4.png)
 
 
-Resource_Material1 Table:
+### Resource_Material1 Table:
+![image](https://user-images.githubusercontent.com/106060204/205522046-02708eab-7d61-42bd-a92f-c3ae3f07229c.png)
+
