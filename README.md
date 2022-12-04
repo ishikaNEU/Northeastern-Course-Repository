@@ -487,5 +487,3 @@ NEU_Specialization Table:
 
 
 Resource_Material1 Table:
-
-
