@@ -43,6 +43,11 @@ https://docs.google.com/forms/d/e/1FAIpQLSdQA2PA0DnS3jZjijo3N6l_oaYShjSEPOj0YfJW
 
 We have collated all the above data sources to create a database and established connections between program offerings, jobs related to these programs, events conducted to promote jobs and programs, and the resources learners need to excel in their coursework. 
 
+# ER Diagram:
+
+![ER_Diagram_DMDD_Assignment3](https://user-images.githubusercontent.com/114371417/205567556-c2712662-1a42-4d1d-85bc-15fcaa6c7621.png)
+
+
 ## Data Cleaning:
 
 
