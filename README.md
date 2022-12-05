@@ -246,9 +246,9 @@ Run the below Queries for the complete code Execution by following the given ste
 	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
 	REFERENCES NEU_Course_Catalogs(course_id);
 
-## 7. Run the Python Script for scraping NEU Websites in Jupyter Notebook
+## 9. Run the Python Script for scraping NEU Websites in Jupyter Notebook
 
-## 8. Run Linkedin API Script for Scraping jobs on Linkedin
+## 10. Run Linkedin API Script for Scraping jobs on Linkedin
 
 #### SQL to insert data in NEU_Event Table
 
