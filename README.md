@@ -106,13 +106,6 @@ Run the below Queries for the complete code Execution by following the given ste
 	);
 
 
-## Add Foreign Key Constraint
-
-	ALTER TABLE NEU_Course_Catalogs
-	ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)
-	REFERENCES NEU_Programs(program_name);
-
-
 ## 3. Create Resources_Material1 table
 
 	CREATE TABLE Resource_material1(
@@ -128,13 +121,6 @@ Run the below Queries for the complete code Execution by following the given ste
 #### Set auto increment value to 3100
 
 	ALTER TABLE Resource_material1 AUTO_INCREMENT=3100;
-
-
-#### Add Foreign Key Constraint 
-
-	ALTER TABLE Resource_material1s
-	ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalogs(course_id);
 
 
 ## 4. Create NEU_Course_Faculty Table
@@ -154,11 +140,6 @@ Run the below Queries for the complete code Execution by following the given ste
 	ALTER TABLE NEU_Course_Faculty AUTO_INCREMENT=4100;
 
 
-#### Add Foreign Key Constraint
-
-	ALTER TABLE NEU_Course_Facultys
-	ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalogs(course_id);
 
 ## 5. Create Course_Core_Requirement table
 
@@ -174,11 +155,6 @@ Run the below Queries for the complete code Execution by following the given ste
 
 	ALTER TABLE course_core_requirement AUTO_INCREMENT=1101;
 
-#### Add Foreign Key Constraint 
-
-	ALTER TABLE Course_Core_Requirements
-	ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
-	REFERENCES NEU_Programs(program_name);
 
 ## 6.  Create Jobs_Info Table
 
@@ -229,6 +205,26 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key constraints
 
+2.
+	ALTER TABLE NEU_Course_Catalogs
+	ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
+
+3.
+        ALTER TABLE Resource_material1s
+	ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalogs(course_id);
+	
+4. 
+	ALTER TABLE NEU_Course_Facultys
+	ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalogs(course_id);
+	
+5. 
+	ALTER TABLE Course_Core_Requirements
+	ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
+9. 
 	ALTER TABLE NEU_Events
 	ADD CONSTRAINT NEU_Event_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
