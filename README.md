@@ -85,9 +85,9 @@ We have collated all the above data sources to create a database and established
 Run the below Queries for the complete code Execution by following the given steps:
 
 
-## 1. Create NEU_Programs table
+## 1. Create NEU_Program table
 
-	CREATE TABLE NEU_Programs (
+	CREATE TABLE NEU_Program (
 	program_name varchar(100),
 	duration varchar(100),
 	program_url varchar(255),
@@ -108,7 +108,7 @@ Run the below Queries for the complete code Execution by following the given ste
 
 ## Add Foreign Key Constraint
 
-	ALTER TABLE NEU_Course_Catalog
+	ALTER TABLE NEU_Course_Catalogs
 	ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
 
@@ -132,9 +132,9 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key Constraint 
 
-	ALTER TABLE Resource_material1
+	ALTER TABLE Resource_material1s
 	ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalog(course_id);
+	REFERENCES NEU_Course_Catalogs(course_id);
 
 
 ## 4. Create NEU_Course_Faculty Table
@@ -156,9 +156,9 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key Constraint
 
-	ALTER TABLE NEU_Course_Faculty
+	ALTER TABLE NEU_Course_Facultys
 	ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalog(course_id);
+	REFERENCES NEU_Course_Catalogs(course_id);
 
 ## 5. Create Course_Core_Requirement table
 
@@ -176,7 +176,7 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key Constraint 
 
-	ALTER TABLE Course_Core_Requirement
+	ALTER TABLE Course_Core_Requirements
 	ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
 
@@ -205,7 +205,7 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key constraints
 
-	ALTER TABLE Jobs_Info
+	ALTER TABLE Jobs_Infos
 	ADD CONSTRAINT Jobs_Info_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
  
@@ -229,7 +229,7 @@ Run the below Queries for the complete code Execution by following the given ste
 
 #### Add Foreign Key constraints
 
-	ALTER TABLE NEU_Event
+	ALTER TABLE NEU_Events
 	ADD CONSTRAINT NEU_Event_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
 
@@ -269,9 +269,9 @@ Run the below Queries for the complete code Execution by following the given ste
 
 ## Adding Foreign_Key Constraints
 
-	ALTER TABLE NEU_Specialization
+	ALTER TABLE NEU_Specializations
 	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalog(course_id);
+	REFERENCES NEU_Course_Catalogs(course_id);
 
 
 ## SQL to insert data in NEU_Specialization Table
@@ -305,7 +305,7 @@ Run the below Queries for the complete code Execution by following the given ste
 	delete from neu_course_catalog;
 	delete from neu_event;
 	delete from course_core_requirement;
-	delete from neu_programs;
+	delete from neu_program;
 
 ## Use Cases
           
