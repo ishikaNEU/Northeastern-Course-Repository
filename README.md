@@ -179,11 +179,8 @@ Run the below Queries for the complete code Execution by following the given ste
 
 	ALTER TABLE jobs_info AUTO_INCREMENT=900;
 
-## 7. Run the Python Script for scraping NEU Websites in Jupyter Notebook
 
-## 8. Run Linkedin API Script for Scraping jobs on Linkedin
-
-## 9. NEU_Event table:
+## 7. NEU_Event table:
 
 	CREATE TABLE NEU_Event (
 	event_id integer auto_increment,
@@ -197,7 +194,7 @@ Run the below Queries for the complete code Execution by following the given ste
 	ALTER TABLE neu_event AUTO_INCREMENT=101;
 	
 	
-## 10. NEU_Specialization Table
+## 8. NEU_Specialization Table
 
 	CREATE TABLE NEU_Specialization (
 	spec_course_id integer auto_increment,
@@ -249,6 +246,9 @@ Run the below Queries for the complete code Execution by following the given ste
 	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
 	REFERENCES NEU_Course_Catalogs(course_id);
 
+## 7. Run the Python Script for scraping NEU Websites in Jupyter Notebook
+
+## 8. Run Linkedin API Script for Scraping jobs on Linkedin
 
 #### SQL to insert data in NEU_Event Table
 
