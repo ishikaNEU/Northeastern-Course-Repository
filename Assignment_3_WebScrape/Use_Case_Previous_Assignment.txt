@@ -181,3 +181,4 @@ SELECT *
 FROM jobs_info;
 
 
+Note:  Other use cases added in Assignment_1 are no longer in scope of the current project.
