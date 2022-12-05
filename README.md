@@ -179,13 +179,6 @@ Run the below Queries for the complete code Execution by following the given ste
 
 	ALTER TABLE jobs_info AUTO_INCREMENT=900;
 
-#### Add Foreign Key constraints
-
-	ALTER TABLE Jobs_Infos
-	ADD CONSTRAINT Jobs_Info_fk1 FOREIGN KEY (program_name)
-	REFERENCES NEU_Programs(program_name);
- 
-
 ## 7. Run the Python Script for scraping NEU Websites in Jupyter Notebook
 
 ## 8. Run Linkedin API Script for Scraping jobs on Linkedin
@@ -202,39 +195,59 @@ Run the below Queries for the complete code Execution by following the given ste
 #### Set auto increment value to 101
 
 	ALTER TABLE neu_event AUTO_INCREMENT=101;
+	
+	
+## 10. NEU_Specialization Table
+
+	CREATE TABLE NEU_Specialization (
+	spec_course_id integer auto_increment,
+	course_id varchar(50),
+	credit_hours integer,
+	specialization varchar(100),
+	Primary Key (spec_course_id)
+	);
+
+## Set auto increment value to 1000
+
+	ALTER TABLE NEU_Specialization AUTO_INCREMENT=1000;
+
 
 #### Add Foreign Key constraints
 
-2.
 
 	ALTER TABLE NEU_Course_Catalogs
 	ADD CONSTRAINT NEU_Course_Catalog_fk1 FOREIGN KEY (program_name)	
 	REFERENCES NEU_Programs(program_name);
 
-3.
 
 	ALTER TABLE Resource_material1s
 	ADD CONSTRAINT Resource_material1_fk FOREIGN KEY (course_id)
 	REFERENCES NEU_Course_Catalogs(course_id);
 
-4.
 
 	ALTER TABLE NEU_Course_Facultys
 	ADD CONSTRAINT NEU_Course_Faculty_fk1 FOREIGN KEY (course_id)
 	REFERENCES NEU_Course_Catalogs(course_id);
-
-5.
+	
 
 	ALTER TABLE Course_Core_Requirements
 	ADD CONSTRAINT NEU_Course_Core_Requirement_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
 	
 
-9.
-
 	ALTER TABLE NEU_Events
 	ADD CONSTRAINT NEU_Event_fk1 FOREIGN KEY (program_name)
 	REFERENCES NEU_Programs(program_name);
+	
+	
+	ALTER TABLE Jobs_Infos
+	ADD CONSTRAINT Jobs_Info_fk1 FOREIGN KEY (program_name)
+	REFERENCES NEU_Programs(program_name);
+	
+	
+	ALTER TABLE NEU_Specializations
+	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
+	REFERENCES NEU_Course_Catalogs(course_id);
 
 
 #### SQL to insert data in NEU_Event Table
@@ -255,26 +268,6 @@ Run the below Queries for the complete code Execution by following the given ste
 	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Greatest MINDS Generations - A Gathering of Black Bostonians (All Ages)2023 (Thu, Jan 19, 9:00 AM)");
 	INSERT INTO neu_event (program_name,event_name) VALUES ("Software Engineering Systems","Can AI Help Create a More Sustainable World? (Tue, Nov 15, 5:00 PM)");
 
-
-## 10. NEU_Specialization Table
-
-	CREATE TABLE NEU_Specialization (
-	spec_course_id integer auto_increment,
-	course_id varchar(50),
-	credit_hours integer,
-	specialization varchar(100),
-	Primary Key (spec_course_id)
-	);
-
-## Set auto increment value to 1000
-
-	ALTER TABLE NEU_Specialization AUTO_INCREMENT=1000;
-
-## Adding Foreign_Key Constraints
-
-	ALTER TABLE NEU_Specializations
-	ADD CONSTRAINT NEU_Specialization_fk1 FOREIGN KEY (course_id)
-	REFERENCES NEU_Course_Catalogs(course_id);
 
 
 ## SQL to insert data in NEU_Specialization Table
@@ -301,14 +294,14 @@ Run the below Queries for the complete code Execution by following the given ste
 
 ## 11. Delete data from table to run the python script again
 
-	delete from jobs_info;
-	delete from neu_specialization;
-	delete from neu_course_faculty;
-	delete from resource_material1;
-	delete from neu_course_catalog;
-	delete from neu_event;
-	delete from course_core_requirement;
-	delete from neu_program;
+	DELETE FROM jobs_info;
+	DELETE FROM neu_specialization;
+	DELETE FROM neu_course_faculty;
+	DELETE FROM resource_material1;
+	DELETE FROM neu_course_catalog;
+	DELETE FROM neu_event;
+	DELETE FROM course_core_requirement;
+	DELETE FROM neu_program;
 
 ## Use Cases
           
