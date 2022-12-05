@@ -408,7 +408,7 @@ SQL Statement:
 
 SQL Statement:
 
-	SELECT a.faculty_name, c.course_rating
+	SELECT a.faculty_name, c.course_rating, b.course_name
 	FROM NEU_Course_Faculty a 
 	JOIN NEU_Course_Catalog b 
 	ON a.program_name = b.program_name
