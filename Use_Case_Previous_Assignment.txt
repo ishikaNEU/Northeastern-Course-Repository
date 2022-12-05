@@ -3,7 +3,7 @@
 SQL Statement:
 
 SELECT program_name,duration 
-FROM neu_programs 
+FROM neu_program
 WHERE program_name = 'Information Systems';
 
 
@@ -12,7 +12,7 @@ WHERE program_name = 'Information Systems';
 SQL Statement:
 
 SELECT * 
-FROM neu_programs;
+FROM neu_program;
 
 3. What are the specializations that are available under COE's various master's programs?
 
@@ -83,7 +83,8 @@ WHERE faculty_rating = 5;
 
 SQL Statement:
 
-SELECT a.program_name,b.course_id,b.professional_certificate from Resource_Material1 b
+SELECT a.program_name,b.course_id,b.professional_certificate 
+FROM Resource_Material1 b
 LEFT JOIN NEU_Course_Catalog a 
 ON a.course_id = b.course_id
 ORDER BY program_name ;
