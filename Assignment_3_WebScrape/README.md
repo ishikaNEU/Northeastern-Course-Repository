@@ -491,7 +491,7 @@ SQL Statement:
 
 
 
-### NEU_CourseFaculty Table:
+### NEU_Course_Faculty Table:
 ![image](https://user-images.githubusercontent.com/106060204/205522031-84670a48-fb9d-4733-abfe-8f83407c9740.png)
 
 
