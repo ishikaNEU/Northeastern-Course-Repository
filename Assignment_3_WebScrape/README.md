@@ -45,8 +45,7 @@ We have collated all the above data sources to create a database and established
 
 # ER Diagram:
 
-![DMDD_Assignment_3_ER_Diagram](https://user-images.githubusercontent.com/114371417/205778310-df4cd292-3377-4439-bb83-04e8ca207623.png)
-
+![DMDD_Assignment3_ER_Diagram](https://user-images.githubusercontent.com/114371417/205808808-e3847d95-8b94-44b6-b2bb-e834471e4fe9.png)
 
 
 ## Data Cleaning:
