@@ -28,7 +28,7 @@ WHERE program_name = 'Information Systems';
 
 SQL Statement:
 
-SELECT DISTINCT (faculty_name),program_name
+SELECT DISTINCT (faculty_name),course_id
 FROM neu_course_faculty;
 
 5. What reading material is available for a particular course online and offline?
@@ -75,7 +75,7 @@ Out of scope since we didnt get any information about it.
 
 SQL Statement:
 
-SELECT Program_name, faculty_name, faculty_rating 
+SELECT course_id, faculty_name, faculty_rating 
 FROM neu_course_faculty 
 WHERE faculty_rating = 5;
 
