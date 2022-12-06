@@ -469,7 +469,7 @@ SQL Statement:
 
 ## Sample data from all tables
 
-### Neu_Programs  table:
+### Neu_Program  table:
 
 ![image](https://user-images.githubusercontent.com/106060204/205521942-81860914-5251-45f3-9e29-bfb565989cb1.png)
 
@@ -491,7 +491,7 @@ SQL Statement:
 
 
 
-### NEU_Faculty Table:
+### NEU_CourseFaculty Table:
 ![image](https://user-images.githubusercontent.com/106060204/205522031-84670a48-fb9d-4733-abfe-8f83407c9740.png)
 
 
