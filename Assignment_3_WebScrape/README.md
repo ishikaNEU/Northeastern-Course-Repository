@@ -323,7 +323,7 @@ SQL Statement:
 	COUNT(a.course_name), b.program_url
 	FROM neu_course_catalog a 
 	LEFT OUTER JOIN
-	NEU_Program_Detail b 
+	NEU_Program b 
 	ON a.program_name = b.program_name 
 	WHERE b.program_name = 'Information Systems'
 	GROUP BY a.program_name;
