@@ -354,7 +354,7 @@ SQL Statement:
 	SELECT a.program_name, GROUP_CONCAT(a.course_id SEPARATOR  '|'),      
 	COUNT(a.course_id), b.program_url
 	FROM Course_Core_requirement a
-	LEFT JOIN NEU_Program_Detail b
+	LEFT JOIN NEU_Program b
 	ON a.program_name = b.program_name
 	GROUP BY a.program_name;
 
