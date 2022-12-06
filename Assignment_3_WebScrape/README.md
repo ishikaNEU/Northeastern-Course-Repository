@@ -421,8 +421,9 @@ SQL Statement:
 	SELECT a.faculty_name, c.course_rating, b.course_name
 	FROM NEU_Course_Faculty a 
 	JOIN NEU_Course_Catalog b 
-	ON a.program_name = b.program_name
-	JOIN Resource_material1 c ON c.course_id = b.course_id 
+	ON a.course_id = b.course_id
+	JOIN Resource_material1 c 
+	ON c.course_id = b.course_id 
 	WHERE b.course_name like '%Big-Data Systems%'
 	ORDER BY c.course_rating;
 
@@ -454,18 +455,18 @@ SQL Statement:
 SQL Statement:
 
 
-	SELECT * FROM NEU_course_Faculty WHERE faculty_name  = ANY (SELECT faculty_name FROM NEU_course_Faculty WHERE course_id  IN ('DAMG 7350', 'INFO 5100', 'DAMG 6105', 'DAMG 7275'));
+	SELECT * FROM NEU_course_Faculty 
+	WHERE faculty_name  = ANY (SELECT faculty_name FROM NEU_course_Faculty WHERE course_id  IN ('DAMG 7350', 'INFO 5100', 'DAMG 6105', 'DAMG 7275'));
 
 
 ### 15.  Which resources are available for students who have chosen Information Systems program?
 
 SQL Statement:
 
-	SELECT a.program_name, b.course_id, c.software_download_url, c.professional_certificate, c.online_platform
-	FROM NEU_Course_Faculty a
-	JOIN NEU_Course_Catalog b ON a.program_name = b.program_name
+	SELECT b.program_name, b.course_id, c.software_download_url, c.professional_certificate, c.online_platform
+	FROM NEU_Course_Catalog b
 	JOIN Resource_material1 c ON c.course_id = b.course_id 
-	WHERE a.program_name = 'Information Systems';
+	WHERE b.program_name = 'Information Systems';
 
 ## Sample data from all tables
 
