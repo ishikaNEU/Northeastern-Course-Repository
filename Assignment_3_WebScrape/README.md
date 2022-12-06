@@ -394,7 +394,7 @@ SQL Statement:
 
 SQL Statement:
 
-	SELECT * FROM NEU_program_Detail;
+	SELECT * FROM NEU_program;
 
 
 ### 9.  Which job positions for students in Data Analytics Engineering and list the details related to those positions?
